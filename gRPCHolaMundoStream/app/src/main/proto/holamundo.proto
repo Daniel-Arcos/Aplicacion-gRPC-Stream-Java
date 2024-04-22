@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+option java_package = "com.proto.saludo";
+
+message SaludoRequest {
+    string nombre = 1;
+}
+
+message SaludoResponse {
+    string resultado = 1;
+}
+
+message ArchivoRequest {
+    string nombre = 1;
+}
+
+message ArchivoResponse {
+    string linea = 1;
+}
+
+service SaludoService {
+    rpc saludo(SaludoRequest) returns (SaludoResponse);
+    rpc saludoStream(SaludoRequest) returns (stream SaludoResponse);
+}
+
+service ArchivoService {
+    rpc archivoStream(ArchivoRequest) returns (stream ArchivoResponse);
+}
